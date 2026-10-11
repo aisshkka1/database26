@@ -1,0 +1,23 @@
+
+   1. The difference between unique and primary key:
+      - A primary key uniquely identifies each record in a table, automatically 
+        enforces a NOT NULL constraint, and only one PRIMARY KEY is allowed per table.
+      - A UNIQUE constraint also ensures that all values in a column are different, 
+        but it allows NULL values (and a table can have multiple UNIQUE constraints).
+
+   2. When to use a single-column vs. composite primary key:
+      - A single-column PRIMARY KEY is used when a single attribute (like an ID 
+        or a surrogate auto-incrementing key) can uniquely identify each row.
+      - A composite PRIMARY KEY is used in junction/mapping tables (many-to-many relationships) 
+        where uniqueness is achieved only by combining two or more columns (e.g., student_id + course_id).
+
+   3. Why a table can have only one PRIMARY KEY but multiple UNIQUE constraints:
+      - A PRIMARY KEY serves as the main physical identifier and clustering mechanism 
+        for the table's data structure, which is why a table can only have one.
+      - A table can have multiple business-level unique attributes (such as username, email, 
+        or phone number), allowing multiple UNIQUE constraints.
+
+
+
+ON DELETE RESTRICT: Deleting a category with existing products is not allowed.
+ON DELETE CASCADE: Deleting an order automatically deletes all related order_items records.
